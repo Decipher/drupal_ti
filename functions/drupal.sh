@@ -33,9 +33,10 @@ function drupal_ti_ensure_drupal() {
 }
 
 #
-# Ensures that the module is linked into the Drupal code base.
+# Ensures that the project is linked into the Drupal code base.
+# @TODO - Change this logic based on project type.
 #
-function drupal_ti_ensure_module_linked() {
+function drupal_ti_ensure_project_linked() {
 	# Ensure we are in the right directory.
 	cd "$DRUPAL_TI_DRUPAL_DIR"
 
@@ -45,28 +46,28 @@ function drupal_ti_ensure_module_linked() {
 		return
 	fi
 
-	# Find absolute path to module.
-	MODULE_DIR=$(cd "$TRAVIS_BUILD_DIR"; pwd)
+	# Find absolute path to project.
+	PROJECT_DIR=$(cd "$TRAVIS_BUILD_DIR"; pwd)
 
 	# Ensure directory exists.
 
 	mkdir -p "$DRUPAL_TI_MODULES_PATH"
 
-	# Point module into the drupal installation.
-	ln -sf "$MODULE_DIR" "$DRUPAL_TI_MODULES_PATH/$DRUPAL_TI_MODULE_NAME"
+	# Point project into the drupal installation.
+	ln -sf "$PROJECT_DIR" "$DRUPAL_TI_MODULES_PATH/$DRUPAL_TI_PROJECT_NAME"
 }
 
 
 #
-# Ensures that the module is linked into the Drupal code base
+# Ensures that the project is linked into the Drupal code base
 # and enabled.
 #
-function drupal_ti_ensure_module() {
-	# Ensure the module is linked into the code base.
-	drupal_ti_ensure_module_linked
+function drupal_ti_ensure_project() {
+	# Ensure the project is linked into the code base.
+	drupal_ti_ensure_project_linked
 
 	# Enable it to download dependencies.
-	drush --yes en "$DRUPAL_TI_MODULE_NAME"
+	drush --yes en "$DRUPAL_TI_PROJECT_NAME"
 }
 
 #

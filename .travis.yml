@@ -20,9 +20,9 @@ php:
   - 7
   - hhvm
 
-branches:
-  only:
-    - "master"
+#branches:
+#  only:
+#    - "master"
 
 cache:
   apt: true
@@ -66,7 +66,8 @@ env:
     - PATH="$PATH:$HOME/.composer/vendor/bin"
 
     # Configuration variables.
-    - DRUPAL_TI_MODULE_NAME="drupal_ti_test"
+    - DRUPAL_TI_PROJECT_NAME="drupal_ti_test"
+    - DRUPAL_TI_PROJECT_TYPE="module"
 
     # Note: This is customized for drupal-8 environment in
     #       tests/drupal-8/drupal_ti_test/tests/drupal_ti/before/environments/drupal-8.sh.
@@ -108,7 +109,7 @@ env:
     # PHPUnit specific commandline arguments.
     - DRUPAL_TI_PHPUNIT_ARGS=""
     # Specifying the phpunit-core src/ directory is useful when e.g. a vendor/
-    # directory is present in the module directory, which phpunit would then
+    # directory is present in the project directory, which phpunit would then
     # try to find tests in. This option is relative to $TRAVIS_BUILD_DIR.
     - DRUPAL_TI_PHPUNIT_CORE_SRC_DIRECTORY="./tests/src"
 

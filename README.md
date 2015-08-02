@@ -1,4 +1,4 @@
-# drupal\_ti - Travis Integration for Drupal modules
+# drupal\_ti - Travis Integration for Drupal projects
 
 [![Build Status](https://travis-ci.org/LionsAd/drupal_ti.svg?branch=master)](https://travis-ci.org/LionsAd/drupal_ti)
 
@@ -10,13 +10,13 @@
 
 Welcome and thanks for trying drupal\_ti!
 
-This will make it simple to use travis to test your drupal modules with simpletest and phpunit tests.
+This will make it simple to use travis to test your drupal projects with simpletest and phpunit tests.
 
-All you need is to push your drupal.org repository to Github, setup the module below, login to travis-ci.org, setup the repo and you are up and running in to time.
+All you need is to push your drupal.org repository to Github, setup the project below, login to travis-ci.org, setup the repo and you are up and running in to time.
 
 ### Setup
 
-Copy .travis.yml.dist to your root folder as .travis.yml and customize the DRUPAL\_TI\_MODULE\_NAME global environment variable to match the name of your module.
+Copy .travis.yml.dist to your root folder as .travis.yml and customize the DRUPAL\_TI\_PROJECT\_NAME and DRUPAL\_TI\_PROJECT\_TYPE global environment variables to match the name and type of your project.
 
 You will also need to activate one matrix option, based on if you have support for Simpletest, PHPUnit, Behat or all together:
 
@@ -30,7 +30,7 @@ env:
 
 This example would run phpunit as one matrix runner, which gives you results fast, then phpunit, simpletest and behat as the slow runner.
 
-If you want to run drupal_ti with a Drupal-8 module, then you need to use:
+If you want to run drupal_ti with a Drupal-8 project, then you need to use:
 
 ````
 - DRUPAL_TI_ENVIROMENT="drupal-8"

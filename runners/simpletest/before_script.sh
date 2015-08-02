@@ -10,8 +10,8 @@ drupal_ti_ensure_drupal
 cd "$DRUPAL_TI_DRUPAL_DIR"
 drush --yes en simpletest
 
-# Ensure the module is linked into the code base and enabled.
-drupal_ti_ensure_module
+# Ensure the project is linked into the code base and enabled.
+drupal_ti_ensure_project
 
 # Clear caches and run a web server.
 drupal_ti_clear_caches
